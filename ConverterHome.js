@@ -1,24 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
-import { TouchableHighlight, Text, useColorScheme, View}from "react-native"
+import { ScrollView, TouchableHighlight, Text, useColorScheme, View}from "react-native"
 
 require("./helpers")
-import { AngleConverter, AreaConverter, DataConverter, LengthConverter, MassConverter, TemperatureConverter, TimeConverter, VolumeConverter
-} from "./converters/converters"
 
 import styles from './styles'
 
 import { CustomSelectButton, SelectableList, SelectorModal, InputField } from './components/custom-components'
-const converters = [
-    {name:'length', class:new LengthConverter()},
-    {name:'area', class:new AreaConverter()},
-    {name:'volume', class:new VolumeConverter()},
-    {name:'mass', class:new MassConverter()},
-    {name:'time', class:new TimeConverter()},
-    {name:'angle', class:new AngleConverter()},
-    {name:'temperature', class:new TemperatureConverter()},
-    {name:'data', class:new DataConverter()}
-]
+import converters from './converters/convertersObject'
 
 const convertersNameList = converters.map((key)=>key.name)
 
@@ -53,7 +42,7 @@ const ConverterHome = (props)=>{
     }
     const unitsList = converter.units
     return(
-        <>
+        <View>
             <View style={styles.appBarStyle}>
                 <View>
                     <Text style={{color:"yellow", fontSize:18}}>{converterType.toUpperCase()}</Text>
@@ -85,7 +74,7 @@ const ConverterHome = (props)=>{
                     </InputField>
                 </View>
             </View>
-        </>
+        </View>
     )
 }
 export default ConverterHome

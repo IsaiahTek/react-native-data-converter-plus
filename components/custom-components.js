@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {View, TouchableHighlight, TextInput, Text, Modal} from "react-native"
+import {View, TouchableHighlight, TextInput, Text, Modal, ScrollView} from "react-native"
 import styles from "../styles"
 
 export const CustomSelectButton = (props)=>{
@@ -19,7 +19,6 @@ export const CustomSelectButton = (props)=>{
 
 export const InputField = (props)=>{
     const input = props.input
-    const inputUnit = props.inputUnit
     const convert = props.convert
     return  (
         <View style={{display:"flex", flexDirection:"row", justifyContent:"flex-end", alignItems:"center"}}>
@@ -56,7 +55,7 @@ export const SelectorModal = (props)=>{
     const title = props.title?props.title:"Select"
     return(
         <Modal
-        animationType="fade"
+        animationType="slide"
         visible={showModal}
         transparent={true}
         onRequestClose={()=>{setModalVisibility(!showModal)}}
@@ -65,9 +64,9 @@ export const SelectorModal = (props)=>{
                 <View style={[styles.modalHeader, {backgroundColor:"#D7A1F955"}]}>
                     <Text style={{color:"purple", fontSize:18}}>{title}</Text>
                 </View>
-                <View>
+                <ScrollView>
                     {props.children}
-                </View>
+                </ScrollView>
             </View>
         </Modal>
     )

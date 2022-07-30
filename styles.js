@@ -10,12 +10,17 @@ const styles = StyleSheet.create({
         paddingVertical:10,
         marginBottom:-40
     },
+    verticalCenteredView:{
+        display:"flex",
+        height:"100%",
+        justifyContent:"center",
+        paddingHorizontal:1
+    },
     modalStyle:{
         margin:40,
-        display:"flex",
-        boxSize:"content",
-        backgroundColor: "white",
+        overflow:"scroll",
         borderRadius: 20,
+        backgroundColor:"white",
         shadowColor: "#000",
         shadowOffset: {
             width: 4,
@@ -25,19 +30,17 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
     },
-    verticalCenteredView:{
-        display:"flex",
-        height:"100%",
-        justifyContent:"center",
-        paddingHorizontal:1
-    },
     modalHeader:{
         padding:10,
-        backgroundColor:"darkpurple",
         width:"100%",
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         alignItems:"center"
+    },
+    modalBody:{
+        height:"49%",
+        // overflow:"scroll",
+        flex:1
     },
     marginBottom:{
         marginBottom:40

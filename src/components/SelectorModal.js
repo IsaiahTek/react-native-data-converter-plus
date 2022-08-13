@@ -1,7 +1,7 @@
 import React from "react"
 import {View, Text, Modal, ScrollView} from "react-native"
 import useWindowDimensions from "react-native/Libraries/Utilities/useWindowDimensions"
-import styles from "../styles"
+import styles from "../../styles"
 const SelectorModal = (props)=>{
     const windowHeight = useWindowDimensions();
     const showModal = props.modalState

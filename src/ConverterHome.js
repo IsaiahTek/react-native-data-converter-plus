@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
-import { ScrollView, TouchableHighlight, Text, useColorScheme, View}from "react-native"
+import { TouchableHighlight, Text, useColorScheme, View}from "react-native"
 
 require("./helpers")
-
+import Colors from "./Colors"
 import styles from './styles'
 
 import { CustomSelectButton, SelectableList, SelectorModal, InputField } from './components/custom-components'
@@ -42,7 +42,7 @@ const ConverterHome = (props)=>{
     }
     const unitsList = converter.units
     return(
-        <View>
+        <View style={{backgroundColor:Colors[dayNightMode].bg}}>
             <View style={styles.appBarStyle}>
                 <View>
                     <Text style={{color:"yellow", fontSize:18}}>{converterType.toUpperCase()}</Text>

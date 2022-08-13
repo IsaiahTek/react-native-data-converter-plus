@@ -49,8 +49,6 @@ const styles = StyleSheet.create({
         marginTop:40
     },
     inputTextStyle:{
-        backgroundColor:"white",
-        color:"purple",
         borderTopLeftRadius:60,
         borderBottomLeftRadius:60,
         fontSize:18, padding:20,

@@ -13,17 +13,15 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import ConverterHome from './ConverterHome';
+import ConverterHome from './src/ConverterHome';
 const App = () => {
-  
-  const dayNightMode = useColorScheme();
 
-  return (
-    <SafeAreaView>
-      <StatusBar transparent={true} backgroundColor="#51067E" />
-      <ConverterHome />
-    </SafeAreaView>
-  );
+    return (
+        <SafeAreaView>
+          <StatusBar transparent={true} backgroundColor="#51067E" />
+          <ConverterHome />
+        </SafeAreaView>
+    );
 };
 
 export default App;

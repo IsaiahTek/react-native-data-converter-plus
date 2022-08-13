@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import {View, TouchableHighlight, TextInput, Text, Modal, ScrollView} from "react-native"
 import styles from "../styles"
+import Colors from "../Colors"
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme"
 
 export const CustomSelectButton = (props)=>{
     const handleSelectValueUpdate = props.handleSelectValueUpdate
@@ -20,13 +22,14 @@ export const CustomSelectButton = (props)=>{
 export const InputField = (props)=>{
     const input = props.input
     const convert = props.convert
+    const dayNightMode = useColorScheme()
     return  (
         <View style={{display:"flex", flexDirection:"row", justifyContent:"flex-end", alignItems:"center"}}>
             <View style={{flex:8}}>
                 <TextInput 
                     keyboardType="decimal-pad"
                     placeholder="0"
-                    style={styles.inputTextStyle} value={input.toString()} onChangeText={newVal => convert(newVal)}
+                    style={[styles.inputTextStyle, {backgroundColor:Colors[dayNightMode].input, color:Colors[dayNightMode].textDark}]} value={input.toString()} onChangeText={newVal => convert(newVal)}
                 />
             </View>
             <View style={{flex:3}}>
@@ -38,13 +41,14 @@ export const InputField = (props)=>{
 
 export const SelectableList = (props)=>{
     let action = props.action
+    const dayNightMode = useColorScheme()
     let closeModalHandler = props.closeModalHandler
     return props.arrayList.map((name)=>
         <TouchableHighlight activeOpacity={0.2} underlayColor="#D7A1F955" key={name} style={{marginVertical:5, paddingVertical:10, paddingLeft:20}} onPress={()=>{
             action(name)
             closeModalHandler(false)
         }}>
-            <Text style={{color:"purple", fontSize:18}}>{name.__toSentenceCase()}</Text>
+            <Text style={{color:Colors[dayNightMode].text, fontSize:18}}>{name.__toSentenceCase()}</Text>
         </TouchableHighlight>
     )
 }
@@ -52,6 +56,7 @@ export const SelectableList = (props)=>{
 export const SelectorModal = (props)=>{
     const showModal = props.modalState
     const setModalVisibility = props.setModalVisibility
+    const dayNightMode = useColorScheme()
     const title = props.title?props.title:"Select"
     return(
         <Modal
@@ -61,10 +66,10 @@ export const SelectorModal = (props)=>{
         onRequestClose={()=>{setModalVisibility(!showModal)}}
         >
             <View style={styles.modalStyle}>
-                <View style={[styles.modalHeader, {backgroundColor:"#D7A1F955"}]}>
-                    <Text style={{color:"purple", fontSize:18}}>{title}</Text>
+                <View style={[styles.modalHeader, {backgroundColor:Colors[dayNightMode].bg}]}>
+                    <Text style={{color:Colors[dayNightMode].text, fontSize:18}}>{title}</Text>
                 </View>
-                <ScrollView>
+                <ScrollView style={{backgroundColor:Colors[dayNightMode].bgLight, color:Colors[dayNightMode].text}}>
                     {props.children}
                 </ScrollView>
             </View>
